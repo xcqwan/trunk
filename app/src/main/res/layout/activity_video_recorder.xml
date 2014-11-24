@@ -1,0 +1,99 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/black">
+    <LinearLayout
+            android:id="@+id/ll_topbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@drawable/bg_topbar">
+        <Button
+                android:id="@+id/btn_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:drawableLeft="@drawable/selector_btn_back"
+                android:drawablePadding="10dp"
+                android:text="新记录"
+                android:textColor="@color/selector_text_light"
+                android:textSize="@dimen/text_medium"
+                android:background="#00000000"/>
+        <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+        <Button
+                android:id="@+id/recorder_flashlight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:drawableLeft="@drawable/btn_recorder_flashlight"
+                android:background="@color/transparent"/>
+    </LinearLayout>
+
+    <com.gezbox.windmap.app.widget.ProgressView
+            android:id="@+id/recorder_progress"
+            android:layout_width="match_parent"
+            android:layout_height="6dp"
+            android:layout_below="@id/ll_topbar" />
+
+    <RelativeLayout
+            android:id="@+id/recorder_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="#222222"
+            android:paddingBottom="20dp"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:paddingTop="20dp" >
+
+        <Button
+                android:id="@+id/recorder_cancel"
+                android:layout_width="66dp"
+                android:layout_height="36dp"
+                android:background="@drawable/btn_recorder_cancel"
+                android:text="取消"
+                android:textColor="#bbbbbb"
+                android:textSize="14dp" />
+
+        <Button
+                android:id="@+id/recorder_next"
+                android:layout_width="66dp"
+                android:layout_height="36dp"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/btn_recorder_next"
+                android:enabled="false"
+                android:text="下一步"
+                android:textColor="#444444"
+                android:textSize="14dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:id="@+id/recorder_surface_parent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/recorder_bottom"
+            android:layout_below="@id/recorder_progress" >
+
+        <SurfaceView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone" />
+    </RelativeLayout>
+
+    <ImageView
+            android:id="@+id/recorder_surface_state"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_below="@id/recorder_progress"
+            android:background="#7f000000"
+            android:clickable="false"
+            android:focusable="false"
+            android:scaleType="center" />
+
+</RelativeLayout>
